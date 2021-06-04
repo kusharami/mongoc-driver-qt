@@ -23,16 +23,19 @@ msvc {
 DEFINES += BSON_COMPILATION
 
 HEADERS += \
-    bson-config.h \
-    bson-version.h \
-    $$MONGOC_BSON_PATH/bson/b64_ntop.h \
-    $$MONGOC_BSON_PATH/bson/b64_pton.h \
+    bson/bson-config.h \
+    bson/bson-version.h \
+    $$MONGOC_BSON_PATH/../../common/common-b64-private.h \
+    $$MONGOC_BSON_PATH/../../common/common-md5-private.h \
+    $$MONGOC_BSON_PATH/../../common/common-prelude.h \
+    $$MONGOC_BSON_PATH/../../common/common-thread-private.h \
     $$MONGOC_BSON_PATH/bson/bcon.h \
+    $$MONGOC_BSON_PATH/bson/bson.h \
     $$MONGOC_BSON_PATH/bson/bson-atomic.h \
     $$MONGOC_BSON_PATH/bson/bson-clock.h \
     $$MONGOC_BSON_PATH/bson/bson-compat.h \
-    $$MONGOC_BSON_PATH/bson/bson-context-private.h \
     $$MONGOC_BSON_PATH/bson/bson-context.h \
+    $$MONGOC_BSON_PATH/bson/bson-context-private.h \
     $$MONGOC_BSON_PATH/bson/bson-decimal128.h \
     $$MONGOC_BSON_PATH/bson/bson-endian.h \
     $$MONGOC_BSON_PATH/bson/bson-error.h \
@@ -44,26 +47,24 @@ HEADERS += \
     $$MONGOC_BSON_PATH/bson/bson-md5.h \
     $$MONGOC_BSON_PATH/bson/bson-memory.h \
     $$MONGOC_BSON_PATH/bson/bson-oid.h \
+    $$MONGOC_BSON_PATH/bson/bson-prelude.h \
     $$MONGOC_BSON_PATH/bson/bson-private.h \
     $$MONGOC_BSON_PATH/bson/bson-reader.h \
     $$MONGOC_BSON_PATH/bson/bson-string.h \
-    $$MONGOC_BSON_PATH/bson/bson-thread-private.h \
     $$MONGOC_BSON_PATH/bson/bson-timegm-private.h \
     $$MONGOC_BSON_PATH/bson/bson-types.h \
     $$MONGOC_BSON_PATH/bson/bson-utf8.h \
     $$MONGOC_BSON_PATH/bson/bson-value.h \
     $$MONGOC_BSON_PATH/bson/bson-version-functions.h \
     $$MONGOC_BSON_PATH/bson/bson-writer.h \
-    $$MONGOC_BSON_PATH/bson/bson.h \
     $$MONGOC_BSON_PATH/jsonsl/jsonsl.h
 
-msvc:HEADERS += \
-    $$MONGOC_BSON_PATH/bson/bson-stdint-win32.h
-else:HEADERS += \
-    $$MONGOC_BSON_PATH/bson/bson-stdint.h
-
 SOURCES += \
+    $$MONGOC_BSON_PATH/../../common/common-b64.c \
+    $$MONGOC_BSON_PATH/../../common/common-md5.c \
+    $$MONGOC_BSON_PATH/../../common/common-thread.c \
     $$MONGOC_BSON_PATH/bson/bcon.c \
+    $$MONGOC_BSON_PATH/bson/bson.c \
     $$MONGOC_BSON_PATH/bson/bson-clock.c \
     $$MONGOC_BSON_PATH/bson/bson-context.c \
     $$MONGOC_BSON_PATH/bson/bson-decimal128.c \
@@ -82,5 +83,4 @@ SOURCES += \
     $$MONGOC_BSON_PATH/bson/bson-value.c \
     $$MONGOC_BSON_PATH/bson/bson-version-functions.c \
     $$MONGOC_BSON_PATH/bson/bson-writer.c \
-    $$MONGOC_BSON_PATH/bson/bson.c \
     $$MONGOC_BSON_PATH/jsonsl/jsonsl.c
