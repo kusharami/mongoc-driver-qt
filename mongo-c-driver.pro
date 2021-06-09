@@ -43,7 +43,7 @@ HEADERS += \
     $$MONGOC_SRC_PATH/mongoc/op-reply.def \
     $$MONGOC_SRC_PATH/mongoc/op-reply-header.def \
     $$MONGOC_SRC_PATH/mongoc/op-update.def \
-    $$MONGOC_SRC_PATH/mongoc/mongoc-counters.def \
+    $$MONGOC_SRC_PATH/mongoc/mongoc-counters.defs \
     $$MONGOC_SRC_PATH/mongoc/mongoc.h \
     $$MONGOC_SRC_PATH/mongoc/mongoc-aggregate-private.h \
     $$MONGOC_SRC_PATH/mongoc/mongoc-apm.h \

@@ -84,3 +84,6 @@ SOURCES += \
     $$MONGOC_BSON_PATH/bson/bson-version-functions.c \
     $$MONGOC_BSON_PATH/bson/bson-writer.c \
     $$MONGOC_BSON_PATH/jsonsl/jsonsl.c
+
+win32:SOURCES += \
+    $$MONGOC_BSON_PATH/bson/bson-atomic.c

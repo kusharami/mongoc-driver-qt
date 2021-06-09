@@ -73,7 +73,11 @@
 /*
  * Define to 1 if you have strings.h available on your platform.
  */
+#ifdef _WINDOWS
+#define BSON_HAVE_STRINGS_H 0
+#else
 #define BSON_HAVE_STRINGS_H 1
+#endif
 #if BSON_HAVE_STRINGS_H != 1
 #undef BSON_HAVE_STRINGS_H
 #endif
