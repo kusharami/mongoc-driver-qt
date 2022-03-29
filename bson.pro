@@ -7,17 +7,25 @@ DESTDIR = $$MONGOC_BIN
 TARGET = bson
 TEMPLATE = lib
 CONFIG += staticlib
-CONFIG += warn_off
 
 win32:DEFINES += _WINDOWS
 
 msvc {
-    QMAKE_CXXFLAGS_WARN_OFF -= -W0
-    QMAKE_CXXFLAGS += -W3 \
+    QMAKE_CFLAGS_WARN_ON += \
         /wd4146 /wd4056 /wd4267 /wd4018 /wd4028 /wd4244
     DEFINES -= UNICODE _UNICODE
     DEFINES += _CRT_SECURE_NO_WARNINGS
     DEFINES += _SCL_SECURE_NO_WARNINGS
+} else:clang|gcc {
+    QMAKE_CFLAGS_WARN_ON += \
+        -Wno-null-pointer-subtraction \
+        -Wno-missing-field-initializers \
+        -Wno-sign-compare \
+        -Wno-incompatible-pointer-types \
+        -Wno-unknown-warning-option \
+        -Wno-unknown-warning \
+        -Wno-unused-parameter \
+        -Wno-unused-command-line-argument
 }
 
 DEFINES += BSON_COMPILATION

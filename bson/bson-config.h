@@ -143,9 +143,13 @@
 #undef BSON_HAVE_RAND_R
 #endif
 
+#if defined(__MINGW32__) && defined(__clang__)
+#undef BSON_HAVE_STRLCPY
+#else
 #define BSON_HAVE_STRLCPY 1
 #if BSON_HAVE_STRLCPY != 1
 #undef BSON_HAVE_STRLCPY
+#endif
 #endif
 
 #endif /* BSON_CONFIG_H */
