@@ -20,6 +20,7 @@ msvc {
     QMAKE_CFLAGS_WARN_ON += \
         -Wno-null-pointer-subtraction \
         -Wno-missing-field-initializers \
+        -Wno-unused-const-variable \
         -Wno-sign-compare \
         -Wno-incompatible-pointer-types \
         -Wno-unknown-warning-option \
