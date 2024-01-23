@@ -10,7 +10,18 @@ emscripten:MONGOC_BIN = $$MONGOC_BIN-emscripten
 clang:MONGOC_BIN = $$MONGOC_BIN-clang
 else::gcc:MONGOC_BIN = $$MONGOC_BIN-gcc
 
-MONGOC_BIN = $$MONGOC_BIN-$$QT_ARCH
+ARCH = $$QT_ARCH
+macx {
+    isEqual(QMAKE_APPLE_DEVICE_ARCHS, "x86_64") {
+        ARCH = $$QMAKE_APPLE_DEVICE_ARCHS
+    } else:isEqual(QMAKE_APPLE_DEVICE_ARCHS, "arm64") {
+        ARCH = $$QMAKE_APPLE_DEVICE_ARCHS
+    } else:contains(QMAKE_APPLE_DEVICE_ARCHS, "x86_64"):contains(QMAKE_APPLE_DEVICE_ARCHS, "arm64") {
+        ARCH = "universal"
+    }
+}
+
+MONGOC_BIN = $$MONGOC_BIN-$$ARCH
 
 CONFIG(debug, debug|release) {
     MONGOC_BIN = $$MONGOC_BIN/debug
